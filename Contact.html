@@ -62,6 +62,15 @@
     <!-- Navigation Bar-->
     <header id="topnav" class="defaultscroll fixed-top sticky">
       <nav id="Topbar">
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <div id="nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </label>
+
         <img
           src="assets/images/ACT Promoters Final Logo-min.jpg"
           alt="ACT Promotors"
@@ -71,11 +80,10 @@
         <ul class="nav nav-pills pull-right">
           <li ui-sref-active="active"><a href="index.html">Home</a></li>
           <li ui-sref-active="active"><a href="Work.html">Projects</a></li>
-          <li ui-sref-active="active"><a href="Contact.html">Contact</a></li>
+          <li ui-sref-active="active">
+            <a class="active" href="Contact.html">Contact</a>
+          </li>
         </ul>
-        <button class="burger-menu" id="burger-menu">
-          <ion-icon class="bars" name="menu-outline"></ion-icon>
-        </button>
       </nav>
     </header>
     <section class="contact" id="contact">
@@ -194,6 +202,11 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="http://tristanedwards.me/u/SweetAlert/lib/sweet-alert.js"></script>
     <script>
+      $(document).ready(function () {
+        $("#nav-icon1").click(function () {
+          $(this).toggleClass("open");
+        });
+      });
       var app = angular.module("myApp", ["ngMessages"]);
       app.controller("myCtrl", function ($scope, $http) {
         $scope.submitQuery = function () {
